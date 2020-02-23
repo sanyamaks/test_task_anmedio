@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./fonts/CeraPro-Regular.woff") format("woff"),
+  url("./fonts/CeraPro-Regular.ttf") format("ttf"),
+  url("./fonts/CeraPro-Regular.eot") format("eot");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./fonts/CeraPro-Medium.woff") format("woff"),
+  url("./fonts/CeraPro-Medium.ttf") format("ttf"),
+  url("./fonts/CeraPro-Medium.eot") format("eot");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Cera Pro";
+  src: url("./fonts/CeraPro-Bold.woff") format("woff"),
+  url("./fonts/CeraPro-Bold.ttf") format("ttf"),
+  url("./fonts/CeraPro-Bold.eot") format("eot");
+  font-weight: bold;
+}
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+
+body {
+margin: 0;
+}
+

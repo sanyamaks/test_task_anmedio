@@ -1,0 +1,511 @@
+.App {
+  display: flex;
+  max-width: 1440px;
+  background-color: #e9effc;
+  font-family: "Cera Pro", "Arial", "Helvetica", sans-serif;
+}
+
+.pure-water {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pure-water__main-illustration {
+  height: 130px;
+  width: 130px;
+}
+
+.pure-water__title {
+  margin: 25px 0 0 0;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+  color: #455273;
+}
+
+.pure-water__description {
+  margin: 40px 0 0 0;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #818fb3;
+}
+
+.order-water {
+  /*display: none; !* Временное свойство *!*/
+  display: flex;
+  flex-direction: column;
+  width: 816px;
+  min-width: 816px;
+  padding: 40px;
+  background-color: #f5f8ff;
+}
+
+.order-water__title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #455273;
+}
+
+.personal-data {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 10px 0 0 0;
+  border: none;
+}
+
+.personal-data__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-data__fullname {
+  width: 328px;
+  max-width: 328px;
+  margin: 30px 0 8px 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #d5dde0;
+  font-size: 12px;
+  line-height: 15px;
+  background: none;
+  color: #455273;
+}
+
+.personal-data__phone-number {
+  width: 328px;
+  max-width: 328px;
+  margin: 30px 0 8px 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #d5dde0;
+  font-size: 12px;
+  line-height: 15px;
+  background: none;
+  color: #455273;
+}
+
+.personal-data__email {
+  width: 328px;
+  max-width: 328px;
+  margin: 30px 0 8px 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #d5dde0;
+  font-size: 12px;
+  line-height: 15px;
+  background: none;
+  color: #455273;
+}
+
+.personal-data__address {
+  width: 328px;
+  max-width: 328px;
+  margin: 30px 0 8px 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #d5dde0;
+  font-size: 12px;
+  line-height: 15px;
+  background: none;
+  color: #455273;
+}
+
+.personal-data__consent {
+  display: flex;
+}
+
+.personal-data__consent-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 15px;
+  color: #455273;
+}
+
+.personal-data__consent-link {
+  color: #418de8;
+  text-decoration: none;
+}
+
+.water-choice {
+  margin: 0;
+  padding: 0;
+}
+
+.water-choice__title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  color: #455273;
+  margin: 0;
+}
+
+.water-choice__container {
+  display: flex;
+  justify-content: space-between;
+  /*border: 1px solid red;*/
+}
+
+.water-choice__item {
+  position: relative;
+  height: 130px;
+  width: 96px;
+  cursor: pointer;
+  /*border: 1px solid red;*/
+}
+
+.water-choice__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /*z-index: 3;*/
+  /*border: 1px solid red;*/
+}
+
+.water-choice__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.water-choice__toggle {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background-color: #d5dde0;
+}
+
+.water-choice__input:checked ~ .water-choice__toggle {
+  background-color: #ffc369;
+}
+
+.water-choice__volume {
+  margin: 0;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: #455273;
+}
+
+.water-choice__quantity {
+  margin: 0;
+  position: absolute;
+  top: 37px;
+  left: 12px;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 13px;
+  color: #babdc2;
+}
+
+.water-choice__price {
+  margin: 0;
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #ffffff;
+}
+
+.date-time-selection {
+  margin: 0;
+  padding: 0;
+}
+
+.date-time-selection__title {
+  margin: 0;
+  color: #455273;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+}
+
+.date-time-selection__subtitle {
+  margin: 0;
+  color: #babdc2;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 13px;
+}
+
+.date-container {
+  display: flex;
+}
+
+.date-container__button {
+  height: 30px;
+  width: 30px;
+  background-color: #f5f8ff;
+  border-radius: 50%;
+  border: 1px solid #e5edff;
+}
+
+.date-container__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 30px;
+  min-width: 30px;
+  width: 30px;
+  cursor: pointer;
+  /*border: 1px solid red;*/
+}
+
+.date-container__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  z-index: -1;
+}
+
+.date-container__input:checked ~ .date-container__background {
+  background-color: #ffc369;
+}
+
+.date-container__input:checked ~ .date-container__day-of-the-month {
+  color: white;
+}
+
+.date-container__input:checked ~ .date-container__day-of-the-week {
+  color: white;
+}
+
+.date-container__background {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  background-color: #e5edff;
+}
+
+.date-container__day-of-the-month {
+  margin: 0;
+  color: #455273;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  z-index: 2;
+}
+
+.date-container__day-of-the-week {
+  margin: 0;
+  color: #9caedd;
+  font-size: 9px;
+  line-height: 11px;
+  text-align: center;
+  z-index: 2;
+}
+
+.date-container__day-of-the-week_day-off {
+  color: #fd7562;
+}
+
+.time-container {
+  display: flex;
+}
+
+.time-container__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 30px;
+  min-width: 92px;
+  width: 92px;
+  cursor: pointer;
+}
+
+.time-container__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  z-index: -1;
+}
+
+.time-container__input:checked ~ .time-container__background {
+  background-color: #ffc369;
+}
+
+.time-container__input:checked ~ .time-container__time-interval {
+  color: white;
+}
+
+.time-container__background {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 2;
+  background-color: #e5edff;
+}
+
+.time-container__time-interval {
+  margin: 0;
+  color: #455273;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  z-index: 2;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #d5dde0;
+}
+
+.order-water__result {
+  margin: 30px 0 0 0;
+}
+
+.result__tittle {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  color: #455273;
+}
+
+.result__amount-of-money {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  color: #455273;
+}
+
+.button {
+  height: 40px;
+  width: 165px;
+  color: white;
+  background-color: #418de8;
+  border: 0;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
+
+.order-water__button {
+}
+
+.report {
+  /*display: flex;*/
+  display: none; /* Временное свойство */
+  flex-direction: column;
+  width: 816px;
+  min-width: 816px;
+  padding: 40px;
+  background-color: #f5f8ff;
+}
+
+.report__header {
+  display: flex;
+}
+
+.report__icon {
+  height: 30px;
+  width: 30px;
+}
+
+.report__tittle {
+  margin: 0 0 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  color: #455273;
+}
+
+.report__container {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.report__item {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin: 0 20px;
+  border-bottom: 1px dashed #d5dde0;
+}
+
+.report__item:last-child {
+  border-bottom: none;
+}
+
+.report__item-name {
+  margin: auto 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #455273;
+}
+
+.report__item-info {
+  margin: auto 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #babdc2;
+}
+
+.report__result {
+  margin: 30px 0 0 0;
+}
+
+.report__notification {
+  margin: 30px 0 0 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 21px;
+  color: #818fb3;
+}
+
+.report__order-number {
+  color: #418de8;
+}
+
+.report__button {
+  margin: 30px 0 0 0;
+}
