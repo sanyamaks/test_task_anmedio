@@ -1,3 +1,40 @@
+# Тестовое задание для ANMEDIO
+Есть абстрактная компания, которая доставляет воду. Они подумали, что в 2020 принимать заявки по телефону это совсем не прогрессивно и решили, что дадут своим любимым клиентам возможность заказа на сайте.
+
+## Особенности
+По будням доступны интервалы доставки: 10-11:00, 12-13:00 и 15-16:00, а по выходным только 12-13:00 и 15-16:00.
+
+## Задача минимум
+- Заверстать макеты
+- Реализовать логику переключения шагов
+
+## Задача максимум
+- Заверстать макеты
+- Реализовать логику с использованием React'а
+- Реализовать логику разных интервалов в зависимости от дня недели
+- Добавить валидации на ввод данных пользователем
+
+## Будет бонусом
+- Использование [сторибука](https://storybook.js.org/)
+- Единый код-стайл и использование [линтера](https://eslint.org/)
+- Ведение коммитов git-а по ходу выполнения
+- Использование инструментарий для сборки, препроцессинга и тд ([gulp](https://gulpjs.com/), [webpack](https://webpack.js.org/) или иное)
+- Покрытие тестами (например, [jest](https://jestjs.io/))
+
+# Как делать тестовое?
+Как тебе угодно! Мы постарались сделать тестовое задание интересным и не совсем простым, чтобы был какой-то challenge. Но в то же время мы не хотим, чтобы ты тратил(а) на него много времени. Для нас главное — объективно оценить навыки кандидатов и дать полезную обратную связь тем, кто не пройдет в этом наборе.
+
+> Самый удобный формат — сделать форк этого репозитория, и по завершению прислать pull request с выполненным заданием. Пример того, как может выглядеть форк после пулл реквеста - папка "Иванов Иван Иванович".
+
+НО! это только рекомендация, если тебе удобно делать иначе — без проблем. Для нас важно понять способность кандидата решать подобные задачи.
+
+Критерии этого задания, по которым будет проводится оценка: качество верстки, адаптивность, семантичность, знание js и опыт работы с реактом. Более детальную оценку по заданию будем отправлять кандидатам после завершения.
+
+Если остались вопросы — почта artem@anmedio.ru или телеграм @artyom_ivanov
+
+# Материалы
+Макет доступен [по ссылке в режиме просмотра](https://www.figma.com/file/iqKdXp063fMoEFD7oZHxVS/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-frontend?node-id=1%3A66) или файлом тут же в репозитории (это фигма)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -30,39 +67,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
