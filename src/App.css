@@ -43,6 +43,10 @@
   color: #818fb3;
 }
 
+.pure-water__button {
+  display: none; /* Временное свойство */
+}
+
 .order-water {
   display: flex;
   /*display: none; !* Временное свойство *!*/
@@ -610,6 +614,7 @@
   }
 
   .pure-water__button {
+    /*display: none; !* Временное свойство *!*/
     margin: 68px 0 0 0;
   }
 
@@ -640,10 +645,6 @@
 
   .personal-data__entry {
     width: 100%;
-  }
-
-  .button_mobile {
-    display: none; /* Временное свойство */
   }
 
   .choice-options {
