@@ -1,32 +1,40 @@
 @font-face {
   font-family: "Cera Pro";
   src: url("./fonts/CeraPro-Regular.woff") format("woff"),
-  url("./fonts/CeraPro-Regular.ttf") format("ttf"),
-  url("./fonts/CeraPro-Regular.eot") format("eot");
+    url("./fonts/CeraPro-Regular.ttf") format("ttf"),
+    url("./fonts/CeraPro-Regular.eot") format("eot");
   font-weight: normal;
 }
 
 @font-face {
   font-family: "Cera Pro";
   src: url("./fonts/CeraPro-Medium.woff") format("woff"),
-  url("./fonts/CeraPro-Medium.ttf") format("ttf"),
-  url("./fonts/CeraPro-Medium.eot") format("eot");
+    url("./fonts/CeraPro-Medium.ttf") format("ttf"),
+    url("./fonts/CeraPro-Medium.eot") format("eot");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Cera Pro";
   src: url("./fonts/CeraPro-Bold.woff") format("woff"),
-  url("./fonts/CeraPro-Bold.ttf") format("ttf"),
-  url("./fonts/CeraPro-Bold.eot") format("eot");
+    url("./fonts/CeraPro-Bold.ttf") format("ttf"),
+    url("./fonts/CeraPro-Bold.eot") format("eot");
   font-weight: bold;
 }
-input[type='number'] {
-  -moz-appearance:textfield;
-}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 body {
-margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #e9effc;
 }
-

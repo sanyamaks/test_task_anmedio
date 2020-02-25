@@ -4,6 +4,10 @@ import mainIllustration from "../src/images/main-illustration.svg";
 import oneBottle from "../src/images/one-bottle.svg";
 import manyBottles from "../src/images/many-bottles.svg";
 import reportIcon from "../src/images/report__icon.svg";
+import increment from "../src/images/increment.svg";
+import decrement from "../src/images/decrement.svg";
+import shape from "../src/images/shape.svg";
+import flag from "../src/images/flag.svg";
 
 const App = () => {
   return (
@@ -20,39 +24,44 @@ const App = () => {
           подходит для кулеров. Закажите доставку воды и мы привезем её на дом
           или в офис.
         </p>
+        <button className="button pure-water__button">Заказать воду</button>
       </article>
       <main className="order-water">
         <h2 className="order-water__title">Заполните данные</h2>
         <fieldset className="personal-data">
           <div className="personal-data__container">
             <input
-              className="personal-data__fullname"
+              className="entry personal-data__entry"
               type="text"
-              placeholder="Кудряшов Вячеслав Сергеевич"
+              placeholder="ФИО"
             />
             <input
-              className="personal-data__phone-number"
+              className="entry personal-data__entry"
               type="number"
-              placeholder="+7 (905) 606-40-04"
+              placeholder="Телефон"
             />
           </div>
           <div className="personal-data__container">
             <input
-              className="personal-data__email"
+              className="entry personal-data__entry"
               type="email"
-              placeholder="voda@mail.ru"
+              placeholder="Email"
             />
             <input
-              className="personal-data__address"
+              className="entry personal-data__entry"
               type="text"
-              placeholder="г. Самара, ул. Мичурина 21, офис 501"
+              placeholder="Адрес доставки"
             />
           </div>
           <label className="personal-data__consent">
             <input
               className="personal-data__consent-checkbox"
               type="checkbox"
+              name="active"
             />
+            <div className="personal-data__consent-icon-container">
+              <img className="personal-data__consent-icon" src={flag} alt="" />
+            </div>
             <p className="personal-data__consent-text">
               Я согласен на <span />
               <a className="personal-data__consent-link" href="#">
@@ -61,173 +70,207 @@ const App = () => {
             </p>
           </label>
         </fieldset>
-        <fieldset className="water-choice">
-          <h3 className="water-choice__title">Вода</h3>
-          <div className="water-choice__container">
-            <label className="water-choice__item">
-              <input
-                className="water-choice__input"
-                name="water"
-                type="radio"
-              />
-              <img
-                className="water-choice__image"
-                src={oneBottle}
-                alt="Одна бутылка 18,9 л"
-              />
-              <p className="water-choice__volume">18,9 л</p>
-              <p className="water-choice__quantity">1 шт</p>
-              <p className="water-choice__price">220 &#8381;</p>
-              <span className="water-choice__toggle" />
-            </label>
-            <label className="water-choice__item">
-              <input
-                className="water-choice__input"
-                name="water"
-                type="radio"
-              />
-              <img
-                className="water-choice__image"
-                src={manyBottles}
-                alt="Шесть бутылок 1,5 л"
-              />
-              <p className="water-choice__volume">1,5 л</p>
-              <p className="water-choice__quantity">6 шт</p>
-              <p className="water-choice__price">175 &#8381;</p>
-              <span className="water-choice__toggle" />
-            </label>
-            <label className="water-choice__item">
-              <input
-                className="water-choice__input"
-                name="water"
-                type="radio"
-              />
-              <img
-                className="water-choice__image"
-                src={manyBottles}
-                alt="Двенадцать бутылка 0,5 л"
-              />
-              <p className="water-choice__volume">0,5 л</p>
-              <p className="water-choice__quantity">12 шт</p>
-              <p className="water-choice__price">270 &#8381;</p>
-              <span className="water-choice__toggle" />
-            </label>
-          </div>
-        </fieldset>
+        <button className="button button_mobile">Далее</button>
+        <div className="choice-options">
+          <fieldset className="water-choice choice-options__water-choice">
+            <h3 className="water-choice__title">Вода</h3>
+            <div className="water-choice__container">
+              <label className="water-choice__item">
+                <input
+                  className="water-choice__input"
+                  name="water"
+                  type="radio"
+                />
+                <img
+                  className="water-choice__image"
+                  src={oneBottle}
+                  alt="Одна бутылка 18,9 л"
+                />
+                <p className="water-choice__volume">18,9 л</p>
+                <p className="water-choice__quantity">1 шт</p>
+                <p className="water-choice__price">220 &#8381;</p>
+                <span className="water-choice__toggle" />
+              </label>
+              <label className="water-choice__item">
+                <input
+                  className="water-choice__input"
+                  name="water"
+                  type="radio"
+                />
+                <img
+                  className="water-choice__image"
+                  src={manyBottles}
+                  alt="Шесть бутылок 1,5 л"
+                />
+                <p className="water-choice__volume">1,5 л</p>
+                <p className="water-choice__quantity">6 шт</p>
+                <p className="water-choice__price">175 &#8381;</p>
+                <span className="water-choice__toggle" />
+              </label>
+              <label className="water-choice__item">
+                <input
+                  className="water-choice__input"
+                  name="water"
+                  type="radio"
+                />
+                <img
+                  className="water-choice__image"
+                  src={manyBottles}
+                  alt="Двенадцать бутылка 0,5 л"
+                />
+                <p className="water-choice__volume">0,5 л</p>
+                <p className="water-choice__quantity">12 шт</p>
+                <p className="water-choice__price">270 &#8381;</p>
+                <span className="water-choice__toggle" />
+              </label>
+            </div>
+            <div className="count water-choice__count">
+              <button className="count__button">
+                <img
+                  className="count__button-icon"
+                  src={decrement}
+                  alt="Уменьшить количество"
+                />
+              </button>
+              <p className="count__text">1</p>
+              <button className="count__button">
+                <img
+                  className="count__button-icon"
+                  src={increment}
+                  alt="Увеличить количество"
+                />
+              </button>
+            </div>
+          </fieldset>
 
-        <fieldset className="date-time-selection">
-          <h3 className="date-time-selection__title">Дата и время доставки</h3>
-          <p className="date-time-selection__subtitle">День</p>
+          <fieldset className="date-time-selection choice-options__date-time-selection">
+            <h3 className="date-time-selection__title">
+              Дата и время доставки
+            </h3>
+            <p className="date-time-selection__subtitle">День</p>
 
-          <div className="date-container">
-            <button className="date-container__button" />
+            <div className="date-container">
+              <button className="date-container__button">
+                <img
+                  className="date-container__button-icon"
+                  src={shape}
+                  alt="Листать вперед"
+                />
+              </button>
 
-            <label className="date-container__item">
-              <input
-                className="date-container__input"
-                type="radio"
-                name="day"
-              />
-              <span className="date-container__background" />
-              <p className="date-container__day-of-the-month">11</p>
-              <p className="date-container__day-of-the-week">Пн</p>
-            </label>
+              <label className="date-container__item">
+                <input
+                  className="date-container__input"
+                  type="radio"
+                  name="day"
+                />
+                <span className="date-container__background" />
+                <p className="date-container__day-of-the-month">11</p>
+                <p className="date-container__day-of-the-week">Пн</p>
+              </label>
 
-            <label className="date-container__item">
-              <input
-                className="date-container__input"
-                type="radio"
-                name="day"
-              />
-              <span className="date-container__background" />
-              <p className="date-container__day-of-the-month">11</p>
-              <p className="date-container__day-of-the-week">Пн</p>
-            </label>
+              <label className="date-container__item">
+                <input
+                  className="date-container__input"
+                  type="radio"
+                  name="day"
+                />
+                <span className="date-container__background" />
+                <p className="date-container__day-of-the-month">11</p>
+                <p className="date-container__day-of-the-week">Пн</p>
+              </label>
 
-            <label className="date-container__item">
-              <input
-                className="date-container__input"
-                type="radio"
-                name="day"
-              />
-              <span className="date-container__background" />
-              <p className="date-container__day-of-the-month">11</p>
-              <p className="date-container__day-of-the-week">Пн</p>
-            </label>
+              <label className="date-container__item">
+                <input
+                  className="date-container__input"
+                  type="radio"
+                  name="day"
+                />
+                <span className="date-container__background" />
+                <p className="date-container__day-of-the-month">11</p>
+                <p className="date-container__day-of-the-week">Пн</p>
+              </label>
 
-            <label className="date-container__item">
-              <input
-                className="date-container__input"
-                type="radio"
-                name="day"
-              />
-              <span className="date-container__background" />
-              <p className="date-container__day-of-the-month">11</p>
-              <p className="date-container__day-of-the-week">Пн</p>
-            </label>
+              <label className="date-container__item">
+                <input
+                  className="date-container__input"
+                  type="radio"
+                  name="day"
+                />
+                <span className="date-container__background" />
+                <p className="date-container__day-of-the-month">11</p>
+                <p className="date-container__day-of-the-week">Пн</p>
+              </label>
 
-            <label className="date-container__item">
-              <input
-                className="date-container__input"
-                type="radio"
-                name="day"
-              />
-              <span className="date-container__background" />
-              <p className="date-container__day-of-the-month">11</p>
-              <p className="date-container__day-of-the-week date-container__day-of-the-week_day-off">
-                Пн
-              </p>
-            </label>
+              <label className="date-container__item">
+                <input
+                  className="date-container__input"
+                  type="radio"
+                  name="day"
+                />
+                <span className="date-container__background" />
+                <p className="date-container__day-of-the-month">11</p>
+                <p className="date-container__day-of-the-week date-container__day-of-the-week_day-off">
+                  Пн
+                </p>
+              </label>
 
-            <label className="date-container__item">
-              <input
-                className="date-container__input"
-                type="radio"
-                name="day"
-              />
-              <span className="date-container__background" />
-              <p className="date-container__day-of-the-month">11</p>
-              <p className="date-container__day-of-the-week date-container__day-of-the-week_day-off">
-                Пн
-              </p>
-            </label>
+              <label className="date-container__item">
+                <input
+                  className="date-container__input"
+                  type="radio"
+                  name="day"
+                />
+                <span className="date-container__background" />
+                <p className="date-container__day-of-the-month">11</p>
+                <p className="date-container__day-of-the-week date-container__day-of-the-week_day-off">
+                  Пн
+                </p>
+              </label>
 
-            <button className="date-container__button date-container__button_reverse" />
-          </div>
+              <button className="date-container__button date-container__button_reverse">
+                <img
+                  className="date-container__button-icon"
+                  src={shape}
+                  alt="Листать вперед"
+                />
+              </button>
+            </div>
 
-          <p className="date-time-selection__subtitle">Время</p>
-          <div className="time-container">
-            <label className="time-container__item">
-              <input
-                className="time-container__input"
-                type="radio"
-                name="time"
-              />
-              <span className="time-container__background" />
-              <p className="time-container__time-interval">10:00 - 11:00</p>
-            </label>
+            <p className="date-time-selection__subtitle">Время</p>
+            <div className="time-container">
+              <label className="time-container__item">
+                <input
+                  className="time-container__input"
+                  type="radio"
+                  name="time"
+                />
+                <span className="time-container__background" />
+                <p className="time-container__time-interval">10:00 - 11:00</p>
+              </label>
 
-            <label className="time-container__item">
-              <input
-                className="time-container__input"
-                type="radio"
-                name="time"
-              />
-              <span className="time-container__background" />
-              <p className="time-container__time-interval">12:00 - 13:00</p>
-            </label>
+              <label className="time-container__item">
+                <input
+                  className="time-container__input"
+                  type="radio"
+                  name="time"
+                />
+                <span className="time-container__background" />
+                <p className="time-container__time-interval">12:00 - 13:00</p>
+              </label>
 
-            <label className="time-container__item">
-              <input
-                className="time-container__input"
-                type="radio"
-                name="time"
-              />
-              <span className="time-container__background" />
-              <p className="time-container__time-interval">15:00 - 16:00</p>
-            </label>
-          </div>
-        </fieldset>
+              <label className="time-container__item">
+                <input
+                  className="time-container__input"
+                  type="radio"
+                  name="time"
+                />
+                <span className="time-container__background" />
+                <p className="time-container__time-interval">15:00 - 16:00</p>
+              </label>
+            </div>
+          </fieldset>
+        </div>
 
         <div className="result order-water__result">
           <p className="result__tittle">Итого</p>

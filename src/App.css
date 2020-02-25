@@ -1,8 +1,14 @@
 .App {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
   max-width: 1440px;
   background-color: #e9effc;
   font-family: "Cera Pro", "Arial", "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .pure-water {
@@ -10,6 +16,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .pure-water__main-illustration {
@@ -27,6 +35,7 @@
 }
 
 .pure-water__description {
+  width: 240px;
   margin: 40px 0 0 0;
   font-size: 14px;
   line-height: 21px;
@@ -35,20 +44,25 @@
 }
 
 .order-water {
-  /*display: none; !* Временное свойство *!*/
   display: flex;
+  /*display: none; !* Временное свойство *!*/
   flex-direction: column;
-  width: 816px;
-  min-width: 816px;
+  height: max-content;
+  /*min-width: 816px;*/
+  max-width: 816px;
+  margin: 0;
   padding: 40px;
   background-color: #f5f8ff;
+  box-sizing: border-box;
 }
 
 .order-water__title {
+  width: 100%;
   margin: 0;
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
+  text-align: left;
   color: #455273;
 }
 
@@ -56,9 +70,10 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0;
+  padding: 0 0 30px 0;
   margin: 10px 0 0 0;
   border: none;
+  border-bottom: 1px dashed #d5dde0;
 }
 
 .personal-data__container {
@@ -66,64 +81,67 @@
   flex-direction: column;
 }
 
-.personal-data__fullname {
-  width: 328px;
-  max-width: 328px;
-  margin: 30px 0 8px 0;
-  padding: 0;
+.entry {
+  width: 100%;
+  margin: 30px 0 0 0;
+  padding: 0 0 8px 0;
   border: 0;
   border-bottom: 1px solid #d5dde0;
   font-size: 12px;
   line-height: 15px;
   background: none;
   color: #455273;
+  -moz-appearance: textfield;
 }
 
-.personal-data__phone-number {
-  width: 328px;
-  max-width: 328px;
-  margin: 30px 0 8px 0;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid #d5dde0;
-  font-size: 12px;
-  line-height: 15px;
-  background: none;
-  color: #455273;
+.entry::-webkit-outer-spin-button,
+.entry::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
-.personal-data__email {
+.personal-data__entry {
   width: 328px;
-  max-width: 328px;
-  margin: 30px 0 8px 0;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid #d5dde0;
-  font-size: 12px;
-  line-height: 15px;
-  background: none;
-  color: #455273;
-}
-
-.personal-data__address {
-  width: 328px;
-  max-width: 328px;
-  margin: 30px 0 8px 0;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid #d5dde0;
-  font-size: 12px;
-  line-height: 15px;
-  background: none;
-  color: #455273;
 }
 
 .personal-data__consent {
+  position: relative;
   display: flex;
+  margin: 30px 0 0 0;
+  cursor: pointer;
+}
+
+.personal-data__consent-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  background: #418de8;
+  border-radius: 3px;
+}
+
+.personal-data__consent-icon {
+  display: none;
+}
+
+.personal-data__consent-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  z-index: -1;
+}
+
+.personal-data__consent-checkbox:checked
+  ~ .personal-data__consent-icon-container
+  .personal-data__consent-icon {
+  display: block;
 }
 
 .personal-data__consent-text {
-  margin: 0;
+  margin: 0 0 0 10px;
   font-size: 12px;
   line-height: 15px;
   color: #455273;
@@ -134,9 +152,24 @@
   text-decoration: none;
 }
 
+.choice-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 0 0;
+  padding: 0 0 30px 0;
+  border-bottom: 1px dashed #d5dde0;
+}
+
 .water-choice {
+  width: 100%;
   margin: 0;
   padding: 0;
+  border: 0;
+  /*border: 1px solid red;*/
+}
+
+.choice-options__water-choice {
+  width: 328px;
 }
 
 .water-choice__title {
@@ -150,6 +183,7 @@
 .water-choice__container {
   display: flex;
   justify-content: space-between;
+  margin: 20px 0 0 0;
   /*border: 1px solid red;*/
 }
 
@@ -232,9 +266,43 @@
   color: #ffffff;
 }
 
-.date-time-selection {
+.count {
+  display: flex;
+}
+
+.water-choice__count {
+  margin: 15px 0 0 0;
+}
+
+.count__button {
   margin: 0;
   padding: 0;
+  background: none;
+  border: 0;
+  outline: 0;
+}
+
+.count__button-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.count__text {
+  margin: 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.date-time-selection {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choice-options__date-time-selection {
+  width: 296px;
 }
 
 .date-time-selection__title {
@@ -246,7 +314,7 @@
 }
 
 .date-time-selection__subtitle {
-  margin: 0;
+  margin: 20px 0 0 0;
   color: #babdc2;
   font-size: 10px;
   font-weight: 500;
@@ -255,9 +323,14 @@
 
 .date-container {
   display: flex;
+  justify-content: space-between;
+  margin: 10px 0 0 0;
 }
 
 .date-container__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 30px;
   width: 30px;
   background-color: #f5f8ff;
@@ -265,15 +338,25 @@
   border: 1px solid #e5edff;
 }
 
+.date-container__button-icon {
+  height: 8px;
+  width: 4px;
+}
+
+.date-container__button_reverse {
+  transform: rotate(180deg);
+}
+
 .date-container__item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  margin: 0 0 0 0;
   height: 30px;
   min-width: 30px;
   width: 30px;
+  position: relative;
   cursor: pointer;
   /*border: 1px solid red;*/
 }
@@ -332,6 +415,8 @@
 
 .time-container {
   display: flex;
+  margin: 10px 0 0 0;
+  justify-content: space-between;
 }
 
 .time-container__item {
@@ -410,6 +495,7 @@
 
 .button {
   height: 40px;
+  min-height: 40px;
   width: 165px;
   color: white;
   background-color: #418de8;
@@ -423,20 +509,22 @@
 }
 
 .order-water__button {
+  margin: 50px 0 0 0;
 }
 
 .report {
-  /*display: flex;*/
+  display: flex;
   display: none; /* Временное свойство */
   flex-direction: column;
-  width: 816px;
-  min-width: 816px;
+  /*min-width: 816px;*/
+  max-width: 816px;
   padding: 40px;
   background-color: #f5f8ff;
 }
 
 .report__header {
   display: flex;
+  width: 100%;
 }
 
 .report__icon {
@@ -449,6 +537,7 @@
   font-size: 24px;
   font-weight: bold;
   line-height: 30px;
+  text-align: left;
   color: #455273;
 }
 
@@ -508,4 +597,94 @@
 
 .report__button {
   margin: 30px 0 0 0;
+}
+
+@media (max-width: 1200px) {
+  .App {
+    min-width: 320px;
+    background-color: #f5f8ff;
+  }
+
+  .pure-water {
+    display: none; /* Временное свойство */
+  }
+
+  .pure-water__button {
+    margin: 68px 0 0 0;
+  }
+
+  .order-water {
+    /*display: none; !* Временное свойство *!*/
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .order-water__title {
+    /*display: none; !* Временное свойство *!*/
+    margin: 30px 0 0 0;
+  }
+
+  .personal-data {
+    /*display: none; !* Временное свойство *!*/
+    width: 100%;
+    margin: 5px 0 auto 0;
+    border: 0;
+  }
+
+  .personal-data__container {
+    width: 100%;
+  }
+
+  .personal-data__entry {
+    width: 100%;
+  }
+
+  .button_mobile {
+    display: none; /* Временное свойство */
+  }
+
+  .choice-options {
+    display: none; /* Временное свойство */
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .result {
+    display: none; /* Временное свойство */
+  }
+
+  .button_mobile {
+    display: none; /* Временное свойство */
+    margin: 0 0 60px 0;
+  }
+
+  .order-water__button {
+    /*display: none; !* Временное свойство *!*/
+    margin: 0 0 30px 0;
+  }
+
+  .report {
+    display: none; /* Временное свойство */
+    align-items: center;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    max-width: 100%;
+    min-width: 100%;
+    height: 100%;
+  }
+
+  .report__container {
+    width: 100%;
+  }
+
+  .report__item {
+    flex-wrap: wrap;
+  }
+
+  .report__notification {
+    margin: 30px 0 auto 0;
+  }
 }
