@@ -1,0 +1,65 @@
+.date-selection-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 0;
+    height: 30px;
+    min-width: 30px;
+    width: 30px;
+    position: relative;
+    cursor: pointer;
+    /*border: 1px solid red;*/
+}
+
+.date-selection-item__input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    z-index: -1;
+}
+
+.date-selection-item__input:checked ~ .date-selection-item__background {
+    background-color: #ffc369;
+}
+
+.date-selection-item__input:checked ~ .date-selection-item__day-of-the-month {
+    color: white;
+}
+
+.date-selection-item__input:checked ~ .date-selection-item__day-of-the-week {
+    color: white;
+}
+
+.date-selection-item__background {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    background-color: #e5edff;
+}
+
+.date-selection-item__day-of-the-month {
+    margin: 0;
+    color: #455273;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    z-index: 2;
+}
+
+.date-selection-item__day-of-the-week {
+    margin: 0;
+    color: #9caedd;
+    font-size: 9px;
+    line-height: 11px;
+    text-align: center;
+    z-index: 2;
+}
+
+.date-selection-item__day-of-the-week_day-off {
+    color: #fd7562;
+}

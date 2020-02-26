@@ -1,0 +1,25 @@
+.date-selection {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 0 0;
+}
+
+.date-selection__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  background-color: #f5f8ff;
+  border-radius: 50%;
+  border: 1px solid #e5edff;
+}
+
+.date-selection__button-icon {
+  height: 8px;
+  width: 4px;
+}
+
+.date-selection__button_reverse {
+  transform: rotate(180deg);
+}

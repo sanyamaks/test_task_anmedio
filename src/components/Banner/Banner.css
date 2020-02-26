@@ -1,0 +1,46 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.banner__main-illustration {
+  height: 130px;
+  width: 130px;
+}
+
+.banner__title {
+  margin: 25px 0 0 0;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+  color: #455273;
+}
+
+.banner__description {
+  width: 240px;
+  margin: 40px 0 0 0;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #818fb3;
+}
+
+.banner__button {
+  display: none; /* Временное свойство */
+}
+
+@media (max-width: 1200px) {
+  .banner {
+    display: none; /* Временное свойство */
+  }
+
+  .banner__button {
+    /*display: none; !* Временное свойство *!*/
+    margin: 68px 0 0 0;
+  }
+}

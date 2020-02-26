@@ -1,0 +1,48 @@
+.water-choice {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /*border: 1px solid red;*/
+}
+
+.water-choice__title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  color: #455273;
+  margin: 0;
+}
+
+.water-choice__bottles {
+  margin: 20px 0 0 0;
+  /*border: 1px solid red;*/
+}
+
+.count {
+  display: flex;
+}
+
+.water-choice__count {
+  margin: 15px 0 0 0;
+}
+
+.count__button {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  outline: 0;
+}
+
+.count__button-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.count__text {
+  margin: 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+}

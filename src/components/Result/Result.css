@@ -1,0 +1,28 @@
+.result {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #d5dde0;
+}
+
+.result__tittle {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  color: #455273;
+}
+
+.result__amount-of-money {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  color: #455273;
+}
+
+@media (max-width: 1200px) {
+  .result {
+    display: none; /* Временное свойство */
+  }
+}
