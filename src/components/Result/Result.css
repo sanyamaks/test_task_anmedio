@@ -23,6 +23,5 @@
 
 @media (max-width: 1200px) {
   .result {
-    display: none; /* Временное свойство */
   }
 }

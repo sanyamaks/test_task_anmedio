@@ -1,4 +1,7 @@
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40px;
     min-height: 40px;
     width: 165px;
@@ -10,5 +13,4 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
-    text-align: center;
 }

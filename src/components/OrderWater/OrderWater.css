@@ -1,6 +1,5 @@
 .order-water {
   display: flex;
-  /*display: none; !* Временное свойство *!*/
   flex-direction: column;
   height: max-content;
   /*min-width: 816px;*/
@@ -41,6 +40,21 @@
   width: 296px;
 }
 
+.order-water__comeback {
+  display: none;
+  outline: none;
+  border: none;
+  background: none;
+  margin: 25px auto 0 0;
+}
+
+.order-water__comeback_mobile {
+
+}
+.order-water__comeback-icon {
+
+}
+
 .order-water__result {
   margin: 30px 0 0 0;
 }
@@ -49,9 +63,12 @@
   margin: 50px 0 0 0;
 }
 
+.order-water__button_mobile {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .order-water {
-    /*display: none; !* Временное свойство *!*/
     align-items: center;
     height: 100%;
     width: 100%;
@@ -60,7 +77,6 @@
   }
 
   .order-water__title {
-    /*display: none; !* Временное свойство *!*/
     margin: 30px 0 0 0;
   }
 
@@ -69,18 +85,29 @@
   }
 
   .choice-options {
-    display: none; /* Временное свойство */
     flex-direction: column;
     width: 100%;
   }
 
-  .button_mobile {
-    display: none; /* Временное свойство */
-    margin: 0 0 60px 0;
+  .order-water__comeback {
+  }
+
+  .order-water__comeback_mobile {
+
+  }
+  .order-water__comeback-icon {
+
+  }
+
+  .order-water__result {
+    margin: 30px 0 auto 0;
   }
 
   .order-water__button {
-    /*display: none; !* Временное свойство *!*/
     margin: 0 0 30px 0;
+  }
+
+  .order-water__button_mobile {
+    margin: 0 0 60px 0;
   }
 }

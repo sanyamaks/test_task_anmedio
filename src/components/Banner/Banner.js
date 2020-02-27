@@ -1,10 +1,18 @@
 import React from "react";
+import cn from "classnames";
+import Button from "../Button/Button";
 import "./Banner.css";
 import mainIllustration from "../../images/main-illustration.svg";
 
-const Banner = () => {
+const Banner = props => {
+
+  let startFilling = event => {
+    event.preventDefault();
+    props.startFilling();
+  };
+
   return (
-    <article className="banner">
+    <article className={cn("banner", props.currentStep.bannerBlockState)}>
       <img
         className="banner__main-illustration"
         alt="logo"
@@ -16,7 +24,11 @@ const Banner = () => {
         подходит для кулеров. Закажите доставку воды и мы привезем её на дом или
         в офис.
       </p>
-      <button className="button banner__button">Заказать воду</button>
+      <Button
+        className={cn("banner__button banner__button_mobile", props.currentStep.bannerElementsState)}
+        value="Заказать воду"
+        onClick={startFilling}
+      />
     </article>
   );
 };

@@ -31,16 +31,17 @@
 }
 
 .banner__button {
-  display: none; /* Временное свойство */
+}
+
+.banner__button {
+  display: none;
 }
 
 @media (max-width: 1200px) {
   .banner {
-    display: none; /* Временное свойство */
   }
 
   .banner__button {
-    /*display: none; !* Временное свойство *!*/
     margin: 68px 0 0 0;
   }
 }

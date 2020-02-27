@@ -4,7 +4,9 @@ import "./Button.css";
 
 const Button = props => {
   return (
-    <button className={cn("button", props.className)}>{props.value}</button>
+    <button {...props} className={cn("button", props.className)}>
+      {props.value}
+    </button>
   );
 };
 

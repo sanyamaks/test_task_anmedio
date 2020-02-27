@@ -1,6 +1,6 @@
 .report {
   display: flex;
-  display: none; /* Временное свойство */
+  /*display: none; !* Временное свойство *!*/
   flex-direction: column;
   /*min-width: 816px;*/
   max-width: 816px;
