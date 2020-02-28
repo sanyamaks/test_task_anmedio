@@ -8,6 +8,7 @@ import manyBottles from "../../images/many-bottles.svg";
 const Bottles = props => {
   const [bottles, setBottles] = useState([
     {
+      id: 1,
       src: oneBottle,
       alt: "Одна бутылка 18,9 л",
       volume: "18,9",
@@ -15,6 +16,7 @@ const Bottles = props => {
       price: "220"
     },
     {
+      id: 2,
       src: manyBottles,
       alt: "Шесть бутылок 1,5 л",
       volume: "1,5",
@@ -22,6 +24,7 @@ const Bottles = props => {
       price: "175"
     },
     {
+      id: 3,
       src: manyBottles,
       alt: "Двенадцать бутылка 0,5 л",
       volume: "0,5",
@@ -38,6 +41,7 @@ const Bottles = props => {
           volume={bottleItem.volume}
           quantity={bottleItem.quantity}
           price={bottleItem.price}
+          key={bottleItem.id}
         />
       ))}
     </div>

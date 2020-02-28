@@ -7,10 +7,14 @@ import ReportItem from "./ReportItem/ReportItem";
 
 const Report = props => {
   const [report, setReport] = useState([
-    { name: "Бутыль 18,9 л", info: "1 шт" },
-    { name: "12 февраля", info: "10:00 - 11:00" },
-    { name: "Адрес доставки", info: "г. Самара, ул. Мичурина 21, офис 501" },
-    { name: "Телефон", info: "+7 (905) 606-40-04" }
+    { id: 1, name: "Бутыль 18,9 л", info: "1 шт" },
+    { id: 2, name: "12 февраля", info: "10:00 - 11:00" },
+    {
+      id: 3,
+      name: "Адрес доставки",
+      info: "г. Самара, ул. Мичурина 21, офис 501"
+    },
+    { id: 4, name: "Телефон", info: "+7 (905) 606-40-04" }
   ]);
 
   const createNewOrder = event => {
@@ -30,7 +34,11 @@ const Report = props => {
 
         <ul className="report__container">
           {report.map(reportItem => (
-            <ReportItem name={reportItem.name} info={reportItem.info} />
+            <ReportItem
+              name={reportItem.name}
+              info={reportItem.info}
+              key={reportItem.id}
+            />
           ))}
         </ul>
         <Result className="report__result" />

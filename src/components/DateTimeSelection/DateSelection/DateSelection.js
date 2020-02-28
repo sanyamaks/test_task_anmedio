@@ -5,12 +5,12 @@ import shape from "../../../images/shape.svg";
 
 const DateSelection = () => {
   const [dates, setDate] = useState([
-    { dayMonth: 11, dayWeek: "Пн" },
-    { dayMonth: 12, dayWeek: "Вт" },
-    { dayMonth: 13, dayWeek: "Ср" },
-    { dayMonth: 14, dayWeek: "Чт" },
-    { dayMonth: 15, dayWeek: "Пт" },
-    { dayMonth: 16, dayWeek: "Сб" }
+    { id: 1, dayMonth: 11, dayWeek: "Пн" },
+    { id: 2, dayMonth: 12, dayWeek: "Вт" },
+    { id: 3, dayMonth: 13, dayWeek: "Ср" },
+    { id: 4, dayMonth: 14, dayWeek: "Чт" },
+    { id: 5, dayMonth: 15, dayWeek: "Пт" },
+    { id: 6, dayMonth: 16, dayWeek: "Сб" }
   ]);
   return (
     <div className="date-selection">
@@ -22,8 +22,8 @@ const DateSelection = () => {
         />
       </button>
 
-      {dates.map(data => (
-        <DateSelectionItem dayMonth={data.dayMonth} dayWeek={data.dayWeek} />
+      {dates.map(date => (
+        <DateSelectionItem dayMonth={date.dayMonth} dayWeek={date.dayWeek} key={date.id}/>
       ))}
 
       <button className="date-selection__button date-selection__button_reverse">

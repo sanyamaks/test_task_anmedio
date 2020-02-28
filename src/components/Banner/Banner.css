@@ -30,17 +30,7 @@
   color: #818fb3;
 }
 
-.banner__button {
-}
-
-.banner__button {
-  display: none;
-}
-
 @media (max-width: 1200px) {
-  .banner {
-  }
-
   .banner__button {
     margin: 68px 0 0 0;
   }

@@ -1,0 +1,33 @@
+.report-item {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin: 0 20px;
+  border-bottom: 1px dashed #d5dde0;
+}
+
+.report-item:last-child {
+  border-bottom: none;
+}
+
+.report-item__name {
+  margin: auto 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #455273;
+}
+
+.report-item__info {
+  margin: auto 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #babdc2;
+}
+
+@media (max-width: 1200px) {
+  .report-item {
+    flex-wrap: wrap;
+  }
+}

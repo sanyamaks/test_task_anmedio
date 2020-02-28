@@ -1,64 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import Banner from "./components/Banner/Banner";
 import OrderWater from "./components/OrderWater/OrderWater";
 import Report from "./components/Report/Report";
 import "./App.css";
 
 const App = () => {
-  const isShow = {
-    true: "mobile-version_show",
-    false: "mobile-version_hide"
+  let orderData = {
+    fullname: "",
+    phoneNumber: "",
+    email: "",
+    address: "",
+    consent: false,
+    bottle: {
+      bottleName: "",
+      bottlePrice: 0,
+      bottleCount: 1
+    },
+    date: 0,
+    time: "",
+    result: 0
   };
 
-  const stepOne = {
-    banner: {
-      bannerBlockState: isShow.true,
-      bannerElementsState: isShow.true
-    },
-    orderWater: {
-      orderWaterBlockState: isShow.false,
-      orderWaterOneBlockState: isShow.false,
-      orderWaterOneElementsState: isShow.false,
-      orderWaterTwoBlockState: isShow.false,
-      orderWaterTwoElementsState: isShow.false
+  let stepNull = {
+    currentStep: 1,
+    windowWidth: window.innerWidth,
+    WIDTH_CHANGE_POINT: 1200
+  };
+
+  let reducer = (step, action) => {
+    switch (action.type) {
+      case "setValueWidth":
+        return { ...step, windowWidth: window.innerWidth };
+      case "setStepOne":
+        return { ...step, currentStep: 1 };
+      case "setStepTwo":
+        return { ...step, currentStep: 2 };
+      case "setStepThree":
+        return { ...step, currentStep: 3 };
+      default:
+        throw new Error();
     }
   };
 
-  const stepTwo = {
-    banner: {
-      bannerBlockState: isShow.false,
-      bannerElementsState: isShow.false
-    },
-    orderWater: {
-      orderWaterBlockState: isShow.true,
-      orderWaterOneBlockState: isShow.true,
-      orderWaterOneElementsState: isShow.true,
-      orderWaterTwoBlockState: isShow.false,
-      orderWaterTwoElementsState: isShow.false
-    }
+  let listenerWidth = () => {
+    dispatch({ type: "setValueWidth" });
+    window.removeEventListener("resize", listenerWidth);
   };
-
-  const stepThree = {
-    banner: {
-      bannerBlockState: isShow.false,
-      bannerElementsState: isShow.false
-    },
-    orderWater: {
-      orderWaterBlockState: isShow.true,
-      orderWaterOneBlockState: isShow.false,
-      orderWaterOneElementsState: isShow.false,
-      orderWaterTwoBlockState: isShow.true,
-      orderWaterTwoElementsState: isShow.true
-    }
-  };
-
-  let [currentStep, setCurrentStep] = useState(stepThree);
-
-  const [isProcessed, setIsProcessed] = useState(false);
+  window.addEventListener("resize", listenerWidth);
 
   let createNewOrder = () => {
     setIsProcessed(false);
-    setCurrentStep((currentStep = stepOne));
+    dispatch({ type: "setStepOne" });
   };
 
   let generateReport = () => {
@@ -66,22 +58,24 @@ const App = () => {
   };
 
   let startFilling = () => {
-    setCurrentStep((currentStep = stepTwo));
+    dispatch({ type: "setStepTwo" });
   };
 
   let continueFilling = () => {
-    setCurrentStep((currentStep = stepThree));
+    dispatch({ type: "setStepThree" });
   };
 
   let comeBack = () => {
-    setCurrentStep((currentStep = stepTwo));
+    dispatch({ type: "setStepTwo" });
   };
 
+  const [isProcessed, setIsProcessed] = useState(false);
+  let [step, dispatch] = useReducer(reducer, stepNull);
   return (
     <div className="App">
-      <Banner currentStep={currentStep.banner} startFilling={startFilling} />
+      <Banner step={step} startFilling={startFilling} />
       <OrderWater
-        currentStep={currentStep.orderWater}
+        step={step}
         isProcessed={isProcessed}
         generateReport={generateReport}
         continueFilling={continueFilling}

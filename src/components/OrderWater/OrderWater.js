@@ -1,5 +1,4 @@
 import React from "react";
-import cn from "classnames";
 import Button from "../Button/Button";
 import Result from "../Result/Result";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
@@ -19,47 +18,42 @@ const OrderWater = props => {
     props.continueFilling();
   };
 
-    let comeBack = event => {
-        event.preventDefault();
-        props.comeBack();
-    };
+  let comeBack = event => {
+    event.preventDefault();
+    props.comeBack();
+  };
 
   if (props.isProcessed) {
     return null;
-  } else {
+  } else if (
+    props.step.currentStep !== 2 &&
+    props.step.currentStep !== 3 &&
+    props.step.windowWidth < props.step.WIDTH_CHANGE_POINT
+  ) {
+    return null;
+  } else if (
+    props.step.currentStep === 2 &&
+    props.step.windowWidth < props.step.WIDTH_CHANGE_POINT
+  ) {
     return (
-      <form
-        onSubmit={generateReport}
-        className={cn("order-water", props.currentStep.orderWaterBlockState)}
-      >
-        <h2
-          className={cn(
-            "order-water__title",
-            props.currentStep.orderWaterOneElementsState
-          )}
-        >
-          Заполните данные
-        </h2>
-        <PersonalInfo
-          className={cn(
-            "order-water__personal-info",
-            props.currentStep.orderWaterOneBlockState
-          )}
-        />
+      <form onSubmit={generateReport} className="order-water">
+        <h2 className="order-water__title">Заполните данные</h2>
+        <PersonalInfo className="order-water__personal-info" />
         <Button
-          className={cn(
-            "order-water__button order-water__button_mobile",
-            props.currentStep.orderWaterOneElementsState
-          )}
+          className="order-water__button order-water__button_mobile"
           value="Далее"
-          type="button"
           onClick={continueFilling}
         />
+      </form>
+    );
+  } else if (
+    props.step.currentStep === 3 &&
+    props.step.windowWidth < props.step.WIDTH_CHANGE_POINT
+  ) {
+    return (
+      <form onSubmit={generateReport} className="order-water">
         <button
-          className={cn(
-            "order-water__comeback order-water__comeback_mobile",
-            props.currentStep.orderWaterTwoElementsState
-          )}
+          className="order-water__comeback order-water__comeback_mobile"
           type="button"
           onClick={comeBack}
         >
@@ -69,27 +63,32 @@ const OrderWater = props => {
             alt="Вернуться назад"
           />
         </button>
-        <div
-          className={cn(
-            "choice-options",
-            props.currentStep.orderWaterTwoBlockState
-          )}
-        >
+        <div className="choice-options">
           <WaterChoice className="choice-options__water-choice" />
-          <DateTimeSelection className=" choice-options__date-time-selection" />
+          <DateTimeSelection className="choice-options__date-time-selection" />
         </div>
 
-        <Result
-          className={cn(
-            "order-water__result",
-            props.currentStep.orderWaterTwoElementsState
-          )}
-        />
+        <Result className="order-water__result" />
         <Button
-          className={cn(
-            "order-water__button",
-            props.currentStep.orderWaterTwoElementsState
-          )}
+          className="order-water__button"
+          value="Заказать воду"
+          onClick={generateReport}
+        />
+      </form>
+    );
+  } else {
+    return (
+      <form onSubmit={generateReport} className="order-water">
+        <h2 className="order-water__title">Заполните данные</h2>
+        <PersonalInfo className="order-water__personal-info" />
+        <div className="choice-options">
+          <WaterChoice className="choice-options__water-choice" />
+          <DateTimeSelection className="choice-options__date-time-selection" />
+        </div>
+
+        <Result className="order-water__result" />
+        <Button
+          className="order-water__button"
           value="Заказать воду"
           onClick={generateReport}
         />
