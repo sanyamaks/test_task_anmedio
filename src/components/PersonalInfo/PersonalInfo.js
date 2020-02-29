@@ -1,70 +1,31 @@
-import React, { useReducer, useState } from "react";
+import React from "react";
 import cn from "classnames";
 import InputField from "../InputField/InputField";
 import "./PersonalInfo.css";
 import flag from "../../images/flag.svg";
 
 const PersonalInfo = props => {
-  const { className } = props;
+  const { dispatchOrderData, personalInfo, className} = props;
 
-  const handleChangeFullname = event => {
-    setValueFullname(event.target.value);
-  };
+  const handleChangeFullname = event =>
+    dispatchOrderData({ type: "setValueFullName", value: event.target.value });
 
   const handleChangeNumber = event => {
-    setValueNumber(event.target.value);
+    dispatchOrderData({ type: "setValueNumber", value: event.target.value });
   };
 
   const handleChangeEmail = event => {
-    setValueEmail(event.target.value);
+    dispatchOrderData({ type: "setValueEmail", value: event.target.value });
   };
 
   const handleChangeAddress = event => {
-    setValueAddress(event.target.value);
+    dispatchOrderData({ type: "setValueAddress", value: event.target.value });
   };
 
-  const [valueFullname, setValueFullname] = useState("");
-  const [valueNumber, setValueNumber] = useState("");
-  const [valueEmail, setValueEmail] = useState("");
-  const [valueAddress, setValueAddress] = useState("");
+  const handleChangeConsent = event => {
+    dispatchOrderData({ type: "setCheckboxConsent", checked: event.target.checked });
+  };
 
-  // const personalInfoNull = {
-  //     fullname: "",
-  //     phoneNumber: "",
-  //     email: "",
-  //     address: ""
-  // };
-
-  // let reducer = (personalInfo, action, event) => {
-  //     switch (action.type) {
-  //         case "setValueFullName":
-  //             return { fullname: event.target.value, ...personalInfo };
-  //         case "setValueNumber":
-  //             return { phoneNumber: event.target.value, ...personalInfo };
-  //         case "setValueEmail":
-  //             return { email: event.target.value, ...personalInfo };
-  //         case "setValueAddress":
-  //             return { address: event.target.value, ...personalInfo };
-  //         default:
-  //             throw new Error();
-  //     }
-  // };
-  //
-  // const handleChangeFullname = () => {
-  //     dispatch({ type: "setValueFullName" });
-  // };
-  //
-  // const handleChangeNumber = () => {
-  //     dispatch({ type: "setValueNumber" });
-  // };
-  //
-  // const handleChangeEmail = () => {
-  //     dispatch({ type: "setValueEmail" });
-  // };
-  //
-  // const handleChangeAddress = () => {
-  //     dispatch({ type: "setValueAddress" });
-  // };
   return (
     <fieldset className={cn("personal-info", className)}>
       <div className="personal-info__container">
@@ -73,14 +34,15 @@ const PersonalInfo = props => {
           type="text"
           placeholder="ФИО"
           onChange={handleChangeFullname}
-          value={valueFullname}
+          value={personalInfo.fullname}
         />
         <InputField
           className="personal-info__input-field"
-          type="number"
+          type="tel"
+          pattern="[9]{1}[0-9]{9}"
           placeholder="Телефон"
           onChange={handleChangeNumber}
-          value={valueNumber}
+          value={personalInfo.phoneNumber}
         />
       </div>
       <div className="personal-info__container">
@@ -89,14 +51,14 @@ const PersonalInfo = props => {
           type="email"
           placeholder="Email"
           onChange={handleChangeEmail}
-          value={valueEmail}
+          value={personalInfo.email}
         />
         <InputField
           className="personal-info__input-field"
           type="text"
           placeholder="Адрес доставки"
           onChange={handleChangeAddress}
-          value={valueAddress}
+          value={personalInfo.address}
         />
       </div>
       <label className="personal-info__consent">
@@ -104,6 +66,7 @@ const PersonalInfo = props => {
           className="personal-info__consent-checkbox"
           type="checkbox"
           name="active"
+          onChange={handleChangeConsent}
         />
         <div className="personal-info__consent-icon-container">
           <img className="personal-info__consent-icon" src={flag} alt="" />

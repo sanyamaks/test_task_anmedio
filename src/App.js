@@ -5,12 +5,14 @@ import Report from "./components/Report/Report";
 import "./App.css";
 
 const App = () => {
-  let orderData = {
-    fullname: "",
-    phoneNumber: "",
-    email: "",
-    address: "",
-    consent: false,
+  let orderDataNull = {
+    personalInfo: {
+      fullname: "",
+      phoneNumber: "",
+      email: "",
+      address: "",
+      consent: false
+    },
     bottle: {
       bottleName: "",
       bottlePrice: 0,
@@ -20,6 +22,43 @@ const App = () => {
     time: "",
     result: 0
   };
+
+  let reducerOrderData = (orderData, action) => {
+    switch (action.type) {
+      case "setValueFullName":
+        return {
+          ...orderData,
+          personalInfo: { ...orderData.personalInfo, fullname: action.value }
+        };
+      case "setValueNumber":
+        return {
+          ...orderData,
+          personalInfo: { ...orderData.personalInfo, phoneNumber: action.value }
+        };
+      case "setValueEmail":
+        return {
+          ...orderData,
+          personalInfo: { ...orderData.personalInfo, email: action.value }
+        };
+      case "setValueAddress":
+        return {
+          ...orderData,
+          personalInfo: { ...orderData.personalInfo, address: action.value }
+        };
+      case "setCheckboxConsent":
+        return {
+          ...orderData,
+          personalInfo: { ...orderData.personalInfo, consent: action.checked }
+        };
+      default:
+        throw new Error();
+    }
+  };
+
+  const [orderData, dispatchOrderData] = useReducer(
+    reducerOrderData,
+    orderDataNull
+  );
 
   let stepNull = {
     currentStep: 1,
@@ -71,19 +110,33 @@ const App = () => {
 
   const [isProcessed, setIsProcessed] = useState(false);
   let [step, dispatch] = useReducer(reducer, stepNull);
-  return (
-    <div className="App">
-      <Banner step={step} startFilling={startFilling} />
-      <OrderWater
-        step={step}
-        isProcessed={isProcessed}
-        generateReport={generateReport}
-        continueFilling={continueFilling}
-        comeBack={comeBack}
-      />
-      <Report isProcessed={isProcessed} createNewOrder={createNewOrder} />
-    </div>
-  );
+  if (!isProcessed) {
+    return (
+      <div className="App">
+        <Banner step={step} startFilling={startFilling} />
+        <OrderWater
+          step={step}
+          isProcessed={isProcessed}
+          generateReport={generateReport}
+          continueFilling={continueFilling}
+          comeBack={comeBack}
+          orderData={orderData}
+          dispatchOrderData={dispatchOrderData}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <Banner step={step} startFilling={startFilling} />
+        <Report
+          orderData={orderData}
+          isProcessed={isProcessed}
+          createNewOrder={createNewOrder}
+        />
+      </div>
+    );
+  }
 };
 
 export default App;

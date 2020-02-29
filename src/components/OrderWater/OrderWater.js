@@ -8,6 +8,61 @@ import "./OrderWater.css";
 import comebackIcon from "../../images/comeback.svg";
 
 const OrderWater = props => {
+  const { orderData, dispatchOrderData } = props;
+
+  console.log(orderData);
+
+  let isValidFullName = () => {
+    if (orderData.personalInfo.fullname === "") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  let isValidNumber = () => {
+    if (orderData.personalInfo.phoneNumber === "") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  let isValidEmail = () => {
+    if (orderData.personalInfo.email === "") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  let isValidAddress = () => {
+    if (orderData.personalInfo.address === "") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  let isValidConsent = () => {
+    if (!orderData.personalInfo.consent) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  let isValidPersonalInfo = () => {
+    if (
+      isValidFullName() &&
+      isValidNumber() &&
+      isValidEmail() &&
+      isValidAddress() &&
+      isValidConsent()
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   let generateReport = event => {
     event.preventDefault();
     props.generateReport();
@@ -15,7 +70,12 @@ const OrderWater = props => {
 
   let continueFilling = event => {
     event.preventDefault();
-    props.continueFilling();
+    if (!isValidPersonalInfo()) {
+      return null;
+    } else {
+      console.log("valid: " + isValidPersonalInfo());
+      props.continueFilling();
+    }
   };
 
   let comeBack = event => {
@@ -23,9 +83,7 @@ const OrderWater = props => {
     props.comeBack();
   };
 
-  if (props.isProcessed) {
-    return null;
-  } else if (
+  if (
     props.step.currentStep !== 2 &&
     props.step.currentStep !== 3 &&
     props.step.windowWidth < props.step.WIDTH_CHANGE_POINT
@@ -38,7 +96,11 @@ const OrderWater = props => {
     return (
       <form onSubmit={generateReport} className="order-water">
         <h2 className="order-water__title">Заполните данные</h2>
-        <PersonalInfo className="order-water__personal-info" />
+        <PersonalInfo
+          className="order-water__personal-info"
+          personalInfo={orderData.personalInfo}
+          dispatchOrderData={dispatchOrderData}
+        />
         <Button
           className="order-water__button order-water__button_mobile"
           value="Далее"
