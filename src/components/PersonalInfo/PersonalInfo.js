@@ -7,25 +7,24 @@ import flag from "../../images/flag.svg";
 const PersonalInfo = props => {
   const { dispatchOrderData, personalInfo, className} = props;
 
-  const handleChangeFullname = event =>
-    dispatchOrderData({ type: "setValueFullName", value: event.target.value });
+  const handleChangeFullName = event =>
+    dispatchOrderData({ type: "setValueFullName", fullName: event.target.value });
 
   const handleChangeNumber = event => {
-    dispatchOrderData({ type: "setValueNumber", value: event.target.value });
+    dispatchOrderData({ type: "setValueNumber", phoneNumber: event.target.value });
   };
 
   const handleChangeEmail = event => {
-    dispatchOrderData({ type: "setValueEmail", value: event.target.value });
+    dispatchOrderData({ type: "setValueEmail", email: event.target.value });
   };
 
   const handleChangeAddress = event => {
-    dispatchOrderData({ type: "setValueAddress", value: event.target.value });
+    dispatchOrderData({ type: "setValueAddress", address: event.target.value });
   };
 
   const handleChangeConsent = event => {
     dispatchOrderData({ type: "setCheckboxConsent", checked: event.target.checked });
   };
-
   return (
     <fieldset className={cn("personal-info", className)}>
       <div className="personal-info__container">
@@ -33,8 +32,8 @@ const PersonalInfo = props => {
           className="personal-info__input-field"
           type="text"
           placeholder="ФИО"
-          onChange={handleChangeFullname}
-          value={personalInfo.fullname}
+          onChange={handleChangeFullName}
+          value={personalInfo.fullName}
         />
         <InputField
           className="personal-info__input-field"

@@ -2,10 +2,15 @@ import React from "react";
 import "./BottlesItem.css";
 
 const BottlesItem = props => {
-  const { src, alt, volume, quantity, price } = props;
+  const { src, alt, volume, quantity, price, onChange } = props;
   return (
     <label className="bottles-item">
-      <input className="bottles-item__input" name="water" type="radio" />
+      <input
+        className="bottles-item__input"
+        name="water"
+        type="radio"
+        onChange={onChange}
+      />
       <img className="bottles-item__image" src={src} alt={alt} />
       <p className="bottles-item__volume">{volume} л</p>
       <p className="bottles-item__quantity">{quantity} шт</p>

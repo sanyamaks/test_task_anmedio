@@ -10,62 +10,66 @@ import comebackIcon from "../../images/comeback.svg";
 const OrderWater = props => {
   const { orderData, dispatchOrderData } = props;
 
-  console.log(orderData);
-
   let isValidFullName = () => {
-    if (orderData.personalInfo.fullname === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return orderData.personalInfo.fullName !== "";
   };
   let isValidNumber = () => {
-    if (orderData.personalInfo.phoneNumber === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return orderData.personalInfo.phoneNumber !== "";
   };
   let isValidEmail = () => {
-    if (orderData.personalInfo.email === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return orderData.personalInfo.email !== "";
   };
   let isValidAddress = () => {
-    if (orderData.personalInfo.address === "") {
-      return false;
-    } else {
-      return true;
-    }
+    return orderData.personalInfo.address !== "";
   };
 
   let isValidConsent = () => {
-    if (!orderData.personalInfo.consent) {
-      return false;
-    } else {
-      return true;
-    }
+    return orderData.personalInfo.consent;
+  };
+
+  let isValidBottleName = () => {
+    return orderData.bottle.bottleName !== "";
+  };
+
+  let isValidDate = () => {
+    return orderData.date !== 0;
+  };
+
+  let isValidTime = () => {
+    return orderData.time !== "";
   };
 
   let isValidPersonalInfo = () => {
-    if (
+    return !!(
       isValidFullName() &&
       isValidNumber() &&
       isValidEmail() &&
       isValidAddress() &&
       isValidConsent()
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    );
+  };
+
+  let isValidForm = () => {
+    return !!(
+      isValidFullName() &&
+      isValidNumber() &&
+      isValidEmail() &&
+      isValidAddress() &&
+      isValidConsent() &&
+      isValidBottleName() &&
+      isValidDate() &&
+      isValidTime()
+    );
   };
 
   let generateReport = event => {
     event.preventDefault();
-    props.generateReport();
+    event.preventDefault();
+    if (!isValidForm()) {
+      return null;
+    } else {
+      props.generateReport();
+    }
   };
 
   let continueFilling = event => {
@@ -73,7 +77,6 @@ const OrderWater = props => {
     if (!isValidPersonalInfo()) {
       return null;
     } else {
-      console.log("valid: " + isValidPersonalInfo());
       props.continueFilling();
     }
   };
@@ -126,11 +129,19 @@ const OrderWater = props => {
           />
         </button>
         <div className="choice-options">
-          <WaterChoice className="choice-options__water-choice" />
-          <DateTimeSelection className="choice-options__date-time-selection" />
+          <WaterChoice
+            className="choice-options__water-choice"
+            bottle={orderData.bottle}
+            dispatchOrderData={dispatchOrderData}
+          />
+          <DateTimeSelection
+            className="choice-options__date-time-selection"
+            orderData={orderData}
+            dispatchOrderData={dispatchOrderData}
+          />
         </div>
 
-        <Result className="order-water__result" />
+        <Result className="order-water__result" result={orderData.result} />
         <Button
           className="order-water__button"
           value="Заказать воду"
@@ -142,13 +153,25 @@ const OrderWater = props => {
     return (
       <form onSubmit={generateReport} className="order-water">
         <h2 className="order-water__title">Заполните данные</h2>
-        <PersonalInfo className="order-water__personal-info" />
+        <PersonalInfo
+          className="order-water__personal-info"
+          personalInfo={orderData.personalInfo}
+          dispatchOrderData={dispatchOrderData}
+        />
         <div className="choice-options">
-          <WaterChoice className="choice-options__water-choice" />
-          <DateTimeSelection className="choice-options__date-time-selection" />
+          <WaterChoice
+            className="choice-options__water-choice"
+            bottle={orderData.bottle}
+            dispatchOrderData={dispatchOrderData}
+          />
+          <DateTimeSelection
+            className="choice-options__date-time-selection"
+            orderData={orderData}
+            dispatchOrderData={dispatchOrderData}
+          />
         </div>
 
-        <Result className="order-water__result" />
+        <Result className="order-water__result" result={orderData.result} />
         <Button
           className="order-water__button"
           value="Заказать воду"
