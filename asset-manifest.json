@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/test_task_anmedio/static/css/main.18e2b03d.chunk.css",
-    "main.js": "/test_task_anmedio/static/js/main.e246b87f.chunk.js",
-    "main.js.map": "/test_task_anmedio/static/js/main.e246b87f.chunk.js.map",
+    "main.css": "/test_task_anmedio/static/css/main.ffb569dc.chunk.css",
+    "main.js": "/test_task_anmedio/static/js/main.a2f719d0.chunk.js",
+    "main.js.map": "/test_task_anmedio/static/js/main.a2f719d0.chunk.js.map",
     "runtime-main.js": "/test_task_anmedio/static/js/runtime-main.29c29746.js",
     "runtime-main.js.map": "/test_task_anmedio/static/js/runtime-main.29c29746.js.map",
-    "static/js/2.5e5254bc.chunk.js": "/test_task_anmedio/static/js/2.5e5254bc.chunk.js",
-    "static/js/2.5e5254bc.chunk.js.map": "/test_task_anmedio/static/js/2.5e5254bc.chunk.js.map",
+    "static/js/2.c12f1941.chunk.js": "/test_task_anmedio/static/js/2.c12f1941.chunk.js",
+    "static/js/2.c12f1941.chunk.js.map": "/test_task_anmedio/static/js/2.c12f1941.chunk.js.map",
     "index.html": "/test_task_anmedio/index.html",
-    "precache-manifest.a7e4dcaaba5c3433691da2f7c054e354.js": "/test_task_anmedio/precache-manifest.a7e4dcaaba5c3433691da2f7c054e354.js",
+    "precache-manifest.90e8a5ee75c99bd018ae25fd2135578b.js": "/test_task_anmedio/precache-manifest.90e8a5ee75c99bd018ae25fd2135578b.js",
     "service-worker.js": "/test_task_anmedio/service-worker.js",
-    "static/css/main.18e2b03d.chunk.css.map": "/test_task_anmedio/static/css/main.18e2b03d.chunk.css.map",
-    "static/js/2.5e5254bc.chunk.js.LICENSE.txt": "/test_task_anmedio/static/js/2.5e5254bc.chunk.js.LICENSE.txt",
+    "static/css/main.ffb569dc.chunk.css.map": "/test_task_anmedio/static/css/main.ffb569dc.chunk.css.map",
+    "static/js/2.c12f1941.chunk.js.LICENSE.txt": "/test_task_anmedio/static/js/2.c12f1941.chunk.js.LICENSE.txt",
     "static/media/index.css": "/test_task_anmedio/static/media/CeraPro-Regular.f582d3a2.ttf",
     "static/media/comeback.svg": "/test_task_anmedio/static/media/comeback.4d6710f9.svg",
     "static/media/decrement.svg": "/test_task_anmedio/static/media/decrement.b7110cd9.svg",
@@ -25,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.29c29746.js",
-    "static/js/2.5e5254bc.chunk.js",
-    "static/css/main.18e2b03d.chunk.css",
-    "static/js/main.e246b87f.chunk.js"
+    "static/js/2.c12f1941.chunk.js",
+    "static/css/main.ffb569dc.chunk.css",
+    "static/js/main.a2f719d0.chunk.js"
   ]
 }
